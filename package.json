@@ -3,6 +3,7 @@
   "version": "0.0.1",
   "author": "renhongl",
   "homepage": "https://renhongl.github.io/news-app/",
+  "publicfolder": "/news-app",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
