@@ -1,0 +1,44 @@
+.container{
+    .top{
+        background: #D32F2F;
+        height: 53px;
+    }
+
+    ion-searchbar{
+        --background: #fff;
+        width: calc(100% - 50px);
+        float: left;
+        height: 100%;
+    }
+
+    ion-icon{
+        float: left;
+    }
+
+    ion-tab-button {
+        float: left;
+        color: #fff;
+        background: none;
+    }
+
+    .bottom{
+        height: 41px;
+        width: 100%;
+        display: flex;
+
+        span{
+            width: 50px;
+            text-align: center;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 0.9rem;
+        }
+
+        .selected{
+            color: #D32F2F;
+            font-size: 1rem;
+        }
+    }
+}

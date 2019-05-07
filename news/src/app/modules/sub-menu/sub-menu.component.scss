@@ -1,0 +1,14 @@
+
+.container{
+    height: 100%;
+
+    ion-slides{
+        height: 100%;
+        --bullet-background: none;
+        --bullet-background-active: none;
+    }
+
+    ion-slide{
+        display: block;
+    }
+}
