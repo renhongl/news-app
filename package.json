@@ -1,8 +1,8 @@
 {
-  "name": "news",
+  "name": "news-app",
   "version": "0.0.1",
-  "author": "Ionic Framework",
-  "homepage": "https://ionicframework.com/",
+  "author": "renhongl",
+  "homepage": "https://renhongl.github.io/news-app/",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
