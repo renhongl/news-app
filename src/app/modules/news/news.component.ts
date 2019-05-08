@@ -1,5 +1,4 @@
 import { Component, OnInit, Inject } from '@angular/core';
-import { news } from './news.data';
 import { News } from '../../shared/type';
 import { NavController } from '@ionic/angular';
 import { translateDate } from '../../shared/utils';

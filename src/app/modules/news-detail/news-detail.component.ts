@@ -1,6 +1,5 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { newsList } from './news-detail.data';
 import { News } from 'src/app/shared/type';
 import { translateDate } from '../../shared/utils';
 
@@ -20,7 +19,7 @@ export class NewsDetailComponent implements OnInit {
   }
 
   getCurrentNews() {
-      const id = this.route.snapshot.paramMap.params.id;
+      const id = this.route.snapshot.paramMap.get('id');
       this.newsService.getNewsContent(id).subscribe(result => {
         const item = result.data;
         this.currentNews = {
