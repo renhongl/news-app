@@ -6,15 +6,18 @@ import { Observable } from 'rxjs';
 @Injectable()
 export class NewsService {
 
+  appid = 94497;
+  certifi = '73d5f543ee9d433a97a26c1bf4ae8e98';
+
   constructor(private http: HttpClient) { }
 
-  getNewsList(): Observable<Array<News>> {
-    let url = 'http://api.dagoogle.cn/news/nlist?cid=9';
-    return this.http.get<Array<News>>(url);
+  getChannel() {
+    let url = `https://route.showapi.com/109-34?showapi_appid=${this.appid}&showapi_sign=${this.certifi}`;
+    return this.http.get(url);
   }
 
-  getNewsContent(id): Observable<Array<News>> {
-    let url = 'http://api.dagoogle.cn/news/ndetail?aid=' + id;
+  getNewsList(channelId): Observable<Array<News>> {
+    let url = `https://route.showapi.com/109-35?showapi_appid=${this.appid}&showapi_sign=${this.certifi}&channelId=${channelId}&needHtml=1`;
     return this.http.get<Array<News>>(url);
   }
 }

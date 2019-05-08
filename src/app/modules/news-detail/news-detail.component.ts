@@ -19,19 +19,19 @@ export class NewsDetailComponent implements OnInit {
   }
 
   getCurrentNews() {
-      const id = this.route.snapshot.paramMap.get('id');
-      this.newsService.getNewsContent(id).subscribe(result => {
-        const item = result.data;
+      const newsId = this.route.snapshot.paramMap.get('id');
+      this.newsService.getNewsList(newsId.split('-')[1]).subscribe( result => {
+        const item = result.showapi_res_body.pagebean.contentlist.filter((item, index) => item.id === newsId.split('-')[0])[0];
         this.currentNews = {
-          id: item.aid,
+          id: item.id,
+          channelId: item.channelId,
           title: item.title,
-          content: item.content,
-          author: item.writer || item.source,
+          author: item.source,
           read: item.click_count,
-          postDate: translateDate(item.pub_time),
-          previewImg: item.headpic,
+          postDate: translateDate(item.pubDate),
+          previewImg: item.img,
+          content: item.html
         }
       });
   }
-
 }

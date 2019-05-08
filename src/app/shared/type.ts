@@ -19,6 +19,7 @@ export interface News {
     author: string;
     read: string;
     postDate: string;
+    channelId?: string;
     previewImg?: string;
     content?: string;
 }
