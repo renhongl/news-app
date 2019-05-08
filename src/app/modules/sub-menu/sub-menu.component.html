@@ -1,13 +1,9 @@
 <div class="container">
-  <ion-slides #menuSlide pager="true" [options]="slideOpts" (ionSlideDidChange)="slideDidChange()">
-    <ion-slide>
-      <app-module-news></app-module-news>
+  <ion-slides #menuSlideRef pager="true" [options]="slideOpts" (ionSlideDidChange)="slideDidChange()">
+
+    <ion-slide *ngFor="let item of homeSubMenu; index as i">
+      <app-module-news #newsListRef [index]="i"></app-module-news>
     </ion-slide>
-    <ion-slide>
-      222
-    </ion-slide>
-    <ion-slide>
-      333
-    </ion-slide>
+
   </ion-slides>
 </div>

@@ -1,9 +1,12 @@
 <ion-header class="ion-header">
   <ion-toolbar class="ion-toolbar">
-      <app-module-common-header [items]="subMenu"></app-module-common-header>
+    <app-module-common-header [items]="subMenu"></app-module-common-header>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <app-core-sub-menu></app-core-sub-menu>
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+  <app-core-sub-menu #subMenuRef></app-core-sub-menu>
 </ion-content>

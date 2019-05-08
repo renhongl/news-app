@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { subMenu } from './home.data';
+import { subMenuMapping } from '../../shared/config';
+
 
 @Component({
   selector: 'app-page-home',
@@ -7,5 +9,15 @@ import { subMenu } from './home.data';
   styleUrls: ['home.page.scss']
 })
 export class HomePage {
-  subMenu = subMenu;
+
+  @ViewChild('subMenuRef') subMenuRef;
+  subMenu = subMenuMapping.home;
+
+  doRefresh(event) {
+    this.subMenuRef.refreshPage();
+
+    setTimeout(() => {
+      event.target.complete();
+    }, 2000);
+  }
 }

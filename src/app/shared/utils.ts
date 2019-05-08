@@ -1,8 +1,9 @@
 
 
 export const translateDate = (dateString) => {
-    let date = new Date(dateString).getTime();
-    let now = Date.now();
+    dateString.replace(/-/g, '/');
+    const date = new Date(dateString).getTime();
+    const now = Date.now();
     let time = Math.ceil((now - date) / 1000 / 60);
     let c = '分钟';
     if (time > 60) {

@@ -26,13 +26,37 @@ export const pagesMapping: Array<Page> = [
 export const subMenuMapping: any = {
     home: [
         {
-            label: '推荐'
+            label: '国内'
         },
         {
-            label: '成都'
+            label: '国际'
         },
         {
-            label: '热点'
-        }
+            label: '军事'
+        },
+        {
+            label: '财经'
+        },
+        {
+            label: '互联网'
+        },
+        // {
+        //     label: '房产'
+        // },
+        // {
+        //     label: '汽车'
+        // },
+        // {
+        //     label: '体育'
+        // },
+        // {
+        //     label: '娱乐'
+        // },
+        // {
+        //     label: '游戏'
+        // },
+        // {
+        //     label: '教育'
+        // }
     ]
 };

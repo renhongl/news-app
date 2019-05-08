@@ -1,4 +1,4 @@
-import { Component, OnInit, Inject } from '@angular/core';
+import { Component, OnInit, Inject, Input } from '@angular/core';
 import { News } from '../../shared/type';
 import { NavController } from '@ionic/angular';
 import { translateDate } from '../../shared/utils';
@@ -11,7 +11,9 @@ import { translateDate } from '../../shared/utils';
 })
 export class NewsComponent implements OnInit {
 
-  newsList: Array<News>;
+  @Input() index;
+
+  newsList: Array<News> = [];
 
   constructor(public navCtrl: NavController, @Inject('newsService') private newsService) { }
 
@@ -19,14 +21,15 @@ export class NewsComponent implements OnInit {
     this.getChannel();
   }
 
-  getChannel() {
+  getChannel(index?: number) {
+    const channelIndex = index !== undefined ? index : this.index;
     this.newsService.getChannel().subscribe( result => {
       const channelList = result.showapi_res_body.channelList;
-      this.getNewsList(channelList[0].channelId);
+      this.getNewsList(channelList[channelIndex].channelId, channelIndex);
     });
   }
 
-  getNewsList(channelId) {
+  getNewsList(channelId, channelIndex) {
     this.newsService.getNewsList(channelId).subscribe( result => {
       const newsList = result.showapi_res_body.pagebean.contentlist.map((item, index) => {
         return {
@@ -40,7 +43,7 @@ export class NewsComponent implements OnInit {
           content: item.html
         };
       });
-      this.newsList = newsList;
+      this.newsList = newsList.reverse().concat(this.newsList);
     });
   }
 
