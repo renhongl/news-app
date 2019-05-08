@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { SubMenuService } from '../sub-menu/sub-menu.service';
+import { SubMenu } from '../../shared/type';
 
 @Component({
   selector: 'app-module-common-header',
@@ -8,7 +9,7 @@ import { SubMenuService } from '../sub-menu/sub-menu.service';
 })
 export class CommonHeaderComponent implements OnInit {
 
-  @Input() items;
+  @Input() items: Array<SubMenu>;
 
   constructor(private subMenuService: SubMenuService) { }
 

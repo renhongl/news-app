@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { news } from './news.data';
+import { News } from '../../shared/type';
+import { NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-module-news',
@@ -8,10 +10,14 @@ import { news } from './news.data';
 })
 export class NewsComponent implements OnInit {
 
-  newsList = news;
+  newsList: Array<News> = news;
 
-  constructor() { }
+  constructor(public navCtrl: NavController) { }
 
   ngOnInit() {}
+
+  pushPage(id: number): void{
+    this.navCtrl.navigateForward(`news-detail/${id}`);
+  }
 
 }

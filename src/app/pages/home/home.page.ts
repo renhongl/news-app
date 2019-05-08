@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { subMenu } from './home.data';
 
 @Component({
   selector: 'app-page-home',
@@ -6,6 +7,5 @@ import { Component } from '@angular/core';
   styleUrls: ['home.page.scss']
 })
 export class HomePage {
-  subMenu = ['推荐', '成都', '热点'];
-  subComponent = ['NewsComponent'];
+  subMenu = subMenu;
 }

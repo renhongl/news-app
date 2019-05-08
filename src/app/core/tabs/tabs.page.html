@@ -1,20 +1,12 @@
 <ion-tabs>
 
   <ion-tab-bar slot="bottom">
-    <ion-tab-button tab="home">
-      <ion-icon name="home"></ion-icon>
-      <ion-label>刷新</ion-label>
-    </ion-tab-button>
 
-    <ion-tab-button tab="xigua-video">
-      <ion-icon name="apps"></ion-icon>
-      <ion-label>西瓜视频</ion-label>
+    <ion-tab-button *ngFor="let item of pagesMapping" [tab]="item.path">
+      <ion-icon [name]="item.icon"></ion-icon>
+      <ion-label>{{item.label}}</ion-label>
     </ion-tab-button>
-
-    <ion-tab-button tab="video">
-      <ion-icon name="play"></ion-icon>
-      <ion-label>小视频</ion-label>
-    </ion-tab-button>
+   
   </ion-tab-bar>
 
 </ion-tabs>

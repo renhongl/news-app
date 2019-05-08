@@ -1,4 +1,6 @@
-export const news = [
+import { News } from '../../shared/type';
+
+export const news: Array<News> = [
     {
         id: 0,
         title: '最好的编程语言是什么？是c/c++还是java/python？我也不知道呢！',

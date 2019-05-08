@@ -7,6 +7,6 @@
     </ion-tab-button>
   </div>
   <div class="bottom">
-    <span *ngFor="let item of items; index as i" [class.selected]="subMenuService.currentMenu === i">{{item}}</span>
+    <span *ngFor="let item of items; index as i" [class.selected]="subMenuService.currentMenu === i">{{item.label}}</span>
   </div>
 </div>

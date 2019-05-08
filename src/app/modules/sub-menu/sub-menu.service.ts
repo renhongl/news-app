@@ -10,8 +10,7 @@ export class SubMenuService {
 
   constructor() { }
 
-  updateMenu(index) {
+  updateMenu(index: number): void {
     this.currentMenu = index;
-    console.log('update: ' + index);
   }
 }

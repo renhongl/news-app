@@ -15,14 +15,12 @@ export class SubMenuComponent implements OnInit {
     speed: 400
   };
 
-  @Input() subComponent;
-
   constructor(private subMenuService: SubMenuService) { }
 
   ngOnInit() {}
 
-  slideDidChange() {
-    this.menuSlide.getActiveIndex().then(index => this.subMenuService.updateMenu(index));
+  slideDidChange(): void {
+    this.menuSlide.getActiveIndex().then((index: number) => this.subMenuService.updateMenu(index));
   }
  
 }

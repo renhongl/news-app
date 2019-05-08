@@ -1,0 +1,42 @@
+.container{
+    padding: 20px;
+
+    .title{
+        font-size: 1.2rem;
+        font-weight: bold;
+        margin-bottom: 20px;
+    }
+
+    .userInfo {
+        position: relative;
+        height: 50px;
+    }
+
+    .author {
+        position: absolute;
+        left: 50px;
+        font-size: 0.8rem;
+        top: 2px;
+    }
+
+    .postDate {
+        position: absolute;
+        left: 50px;
+        bottom: 11px;
+        font-size: 0.8rem;
+        color: grey;
+    }
+
+    img{
+        width: 40px;
+        height: 40px;
+        position: absolute;
+        border-radius: 50%;
+    }
+
+    .content{
+        line-height: 25px;
+        font-size: 0.9rem;
+        font-weight: 500;
+    }
+}
