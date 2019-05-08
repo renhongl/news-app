@@ -1,7 +1,7 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { News } from 'src/app/shared/type';
-import { translateDate } from '../../shared/utils';
+import { translateDate, parseHtml } from '../../shared/utils';
 
 @Component({
   selector: 'app-module-news-detail',
@@ -30,7 +30,7 @@ export class NewsDetailComponent implements OnInit {
           read: item.click_count,
           postDate: translateDate(item.pubDate),
           previewImg: item.img,
-          content: item.html
+          content: parseHtml(item.html)
         }
       });
   }

@@ -1,7 +1,7 @@
 import { Component, OnInit, Inject, Input } from '@angular/core';
 import { News } from '../../shared/type';
 import { NavController } from '@ionic/angular';
-import { translateDate } from '../../shared/utils';
+import { translateDate, parseHtml } from '../../shared/utils';
 
 
 @Component({
@@ -40,7 +40,7 @@ export class NewsComponent implements OnInit {
           read: item.click_count,
           postDate: translateDate(item.pubDate),
           previewImg: item.img,
-          content: item.html
+          content: parseHtml(item.html)
         };
       });
       this.newsList = newsList.reverse().concat(this.newsList);

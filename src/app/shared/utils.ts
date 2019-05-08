@@ -12,3 +12,7 @@ export const translateDate = (dateString) => {
     }
     return `${time} ${c}`;
 };
+
+export const parseHtml = (html) => {
+    return html.replace(/http:/g, 'https:');
+}
