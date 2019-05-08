@@ -1,6 +1,6 @@
 <div class="container">
   <div class="news" *ngFor="let news of newsList" (click)="pushPage(news.id, news.channelId)">
-    <div class="title">{{news.title}}</div>
+    <div class="title" [class.extend]="!news.previewImg">{{news.title}}</div>
     <div class="author">{{news.author}}</div>
     <!-- <div class="read">{{news.read}} 阅读</div> -->
     <div class="postDate">{{news.postDate}} 前</div>

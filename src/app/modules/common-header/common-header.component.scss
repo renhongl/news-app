@@ -25,20 +25,21 @@
         height: 41px;
         width: 100%;
         display: flex;
+        padding-left: 10px;
 
         span{
-            width: 50px;
+            width: 58px;
             text-align: center;
             height: 100%;
             display: flex;
             justify-content: center;
             align-items: center;
-            font-size: 0.9rem;
+            font-size: 1.1rem;
         }
 
         .selected{
             color: #D32F2F;
-            font-size: 1rem;
+            font-size: 1.2rem;
         }
     }
 }

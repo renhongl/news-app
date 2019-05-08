@@ -29,7 +29,7 @@ export class NewsDetailComponent implements OnInit {
           author: item.source,
           read: item.click_count,
           postDate: translateDate(item.pubDate),
-          previewImg: item.img,
+          previewImg: parseHtml(item.img),
           content: parseHtml(item.html)
         }
       });
