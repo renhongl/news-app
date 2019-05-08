@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { newsList } from './news-detail.data';
 import { News } from 'src/app/shared/type';
+import { translateDate } from '../../shared/utils';
 
 @Component({
   selector: 'app-module-news-detail',
@@ -12,11 +13,26 @@ export class NewsDetailComponent implements OnInit {
 
   currentNews: News;
 
-  constructor(private route: ActivatedRoute) { }
+  constructor(private route: ActivatedRoute, @Inject('newsService') private newsService) { }
 
   ngOnInit() {
-    const id = +this.route.snapshot.paramMap.get('id');
-    this.currentNews = newsList.filter(item => item.id === id)[0];
+    this.getCurrentNews();
+  }
+
+  getCurrentNews() {
+      const id = this.route.snapshot.paramMap.params.id;
+      this.newsService.getNewsContent(id).subscribe(result => {
+        const item = result.data;
+        this.currentNews = {
+          id: item.aid,
+          title: item.title,
+          content: item.content,
+          author: item.writer || item.source,
+          read: item.click_count,
+          postDate: translateDate(item.pub_time),
+          previewImg: item.headpic,
+        }
+      });
   }
 
 }

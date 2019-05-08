@@ -14,7 +14,7 @@ export interface SubMenu {
 }
 
 export interface News {
-    readonly id: number;
+    readonly id: string;
     title: string;
     author: string;
     read: string;

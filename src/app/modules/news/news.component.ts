@@ -1,22 +1,43 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { news } from './news.data';
 import { News } from '../../shared/type';
 import { NavController } from '@ionic/angular';
+import { translateDate } from '../../shared/utils';
+
 
 @Component({
   selector: 'app-module-news',
   templateUrl: './news.component.html',
-  styleUrls: ['./news.component.scss'],
+  styleUrls: ['./news.component.scss']
 })
 export class NewsComponent implements OnInit {
 
-  newsList: Array<News> = news;
+  newsList: Array<News>;
 
-  constructor(public navCtrl: NavController) { }
+  constructor(public navCtrl: NavController, @Inject('newsService') private newsService) { }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.getNewsList();
+  }
 
-  pushPage(id: number): void{
+  getNewsList() {
+    this.newsService.getNewsList().subscribe( result => {
+      const newsList = result.data.list.map((item, index) => {
+        return {
+          id: item.aid,
+          title: item.title,
+          author: item.writer || item.source,
+          read: item.click_count,
+          postDate: translateDate(item.pub_time),
+          previewImg: item.headpic,
+          content: item.url
+        };
+      });
+      this.newsList = newsList;
+    });
+  }
+
+  pushPage(id: string): void{
     this.navCtrl.navigateForward(`news-detail/${id}`);
   }
 
