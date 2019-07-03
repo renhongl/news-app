@@ -15,23 +15,20 @@ export class NewsDetailComponent implements OnInit {
   constructor(private route: ActivatedRoute, @Inject('newsService') private newsService) { }
 
   ngOnInit() {
-    this.getCurrentNews();
+    this.getNewsDetail();
   }
 
-  getCurrentNews() {
-      const newsId = this.route.snapshot.paramMap.get('id');
-      this.newsService.getNewsList(newsId.split('-')[1]).subscribe( result => {
-        const item = result.showapi_res_body.pagebean.contentlist.filter((item, index) => item.id === newsId.split('-')[0])[0];
-        this.currentNews = {
-          id: item.id,
-          channelId: item.channelId,
-          title: item.title,
-          author: item.source,
-          read: item.click_count,
-          postDate: translateDate(item.pubDate),
-          previewImg: parseHtml(item.img),
-          content: parseHtml(item.html)
-        }
-      });
+  getNewsDetail() {
+    const newsId = this.route.snapshot.paramMap.get('id');
+    this.newsService.getNewsDetail(newsId).subscribe(result => {
+      const news = result.data;
+      this.currentNews = {
+        id: news._id,
+        title: news.title,
+        author: news.author,
+        postDate: translateDate(news.dateTime),
+        content: news.content
+      };
+    });
   }
 }

@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { News } from 'src/app/shared/type';
-import { Observable } from 'rxjs';
+import { createAuthHeader } from '../../shared/utils';
 
 @Injectable()
 export class NewsService {
@@ -11,13 +10,13 @@ export class NewsService {
 
   constructor(private http: HttpClient) { }
 
-  getChannel() {
-    let url = `https://route.showapi.com/109-34?showapi_appid=${this.appid}&showapi_sign=${this.certifi}`;
-    return this.http.get(url);
+  getLatestNews() {
+    const url = 'http://localhost:3000/news/latest/20';
+    return this.http.get(url, { headers: createAuthHeader() });
   }
 
-  getNewsList(channelId): Observable<Array<News>> {
-    let url = `https://route.showapi.com/109-35?showapi_appid=${this.appid}&showapi_sign=${this.certifi}&channelId=${channelId}&needHtml=1`;
-    return this.http.get<Array<News>>(url);
+  getNewsDetail(id) {
+    const url = 'http://localhost:3000/news/' + id;
+    return this.http.get(url, { headers: createAuthHeader() });
   }
 }

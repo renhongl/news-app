@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NavController } from '@ionic/angular';
+import { HomePage } from '../home/home.page';
 
 @Component({
   selector: 'app-page-news-detail',
@@ -14,7 +15,7 @@ export class NewsDetailPage implements OnInit {
   }
 
   goBack(): void {
-    this.navCtrl.navigateBack(null);
+    this.navCtrl.navigateBack('/');
   }
 
 }

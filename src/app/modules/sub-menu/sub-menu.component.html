@@ -2,7 +2,7 @@
   <ion-slides #menuSlideRef pager="true" [options]="slideOpts" (ionSlideDidChange)="slideDidChange()">
 
     <ion-slide *ngFor="let item of homeSubMenu; index as i">
-      <app-module-news #newsListRef [index]="i"></app-module-news>
+      <app-module-news #newsListRef [index]="i" [currentMenu]="currentMenu"></app-module-news>
     </ion-slide>
 
   </ion-slides>

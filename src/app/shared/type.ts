@@ -17,8 +17,8 @@ export interface News {
     readonly id: string;
     title: string;
     author: string;
-    read: string;
-    postDate: string;
+    read?: string;
+    postDate?: string;
     channelId?: string;
     previewImg?: string;
     content?: string;

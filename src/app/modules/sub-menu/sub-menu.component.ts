@@ -19,11 +19,18 @@ export class SubMenuComponent implements OnInit {
 
   homeSubMenu = subMenuMapping.home;
 
+  currentMenu = 0;
+
   constructor(private subMenuService: SubMenuService) { }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.subMenuService.menuSubject$.subscribe(menu => {
+      debugger;
+    });
+  }
 
   slideDidChange(): void {
+    debugger;
     this.menuSlideRef.getActiveIndex().then((index: number) => this.subMenuService.updateMenu(index));
   }
 
@@ -32,5 +39,5 @@ export class SubMenuComponent implements OnInit {
     const currentNewsRef = this.newsListRefList.filter((item, index) => index === currentMenu)[0];
     currentNewsRef.getChannel(currentMenu);
   }
- 
+
 }
