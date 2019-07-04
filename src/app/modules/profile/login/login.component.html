@@ -1,0 +1,22 @@
+<div class="container">
+  <form onsubmit="processForm(event)">
+    <ion-list lines="full" class="ion-no-margin ion-no-padding">
+      <ion-item>
+        <ion-label position="stacked">User Name <ion-text color="danger">*</ion-text>
+        </ion-label>
+        <ion-input required type="text" (input)="handleUsername($event)"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="stacked">Password <ion-text color="danger">*</ion-text>
+        </ion-label>
+        <ion-input required type="text" (input)="handlePassword($event)"></ion-input>
+      </ion-item>
+
+    </ion-list>
+
+    <div class="ion-padding">
+      <ion-button expand="block" type="button" class="ion-no-margin" (click)="handleLogin()">Login</ion-button>
+    </div>
+  </form>
+</div>

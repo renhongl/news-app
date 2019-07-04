@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-icon name="arrow-back" (click)="goBack()"></ion-icon>
+    <ion-title>写新闻</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form onsubmit="processForm(event)">
+    <ion-list lines="full" class="ion-no-margin ion-no-padding">
+      <ion-item>
+        <ion-label position="stacked">标题<ion-text color="danger">*</ion-text>
+        </ion-label>
+        <ion-input required type="text" (input)="handleTitle($event)"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="stacked">正文<ion-text color="danger">*</ion-text>
+        </ion-label>
+        <ion-textarea rows="10" (input)="handleContent($event)"></ion-textarea>
+      </ion-item>
+
+      <ion-item>
+        <div class="attach">
+          <div class="upload">
+              <ion-icon name="add"></ion-icon>
+              <input type="file" (change)="uploadImg($event)">
+          </div>
+        </div>
+      </ion-item>
+    </ion-list>
+
+
+
+    <div class="ion-padding">
+      <ion-button (click)="submitNews()" expand="block" type="button" class="ion-no-margin">提交</ion-button>
+    </div>
+  </form>
+</ion-content>

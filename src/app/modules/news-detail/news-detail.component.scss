@@ -1,6 +1,15 @@
 .container{
     padding: 20px;
 
+    .content-img{
+        width: 80%;
+        height: 50%;
+        margin: 0 auto;
+        border-radius: 0;
+        display: inline-block;
+        position: inherit;
+    }
+
     .news{
         font-size: 1.1rem;
     }

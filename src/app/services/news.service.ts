@@ -18,4 +18,16 @@ export class NewsService {
     const url = URL.getNewsDetail + id;
     return this.http.get(url, { headers: createAuthHeader() });
   }
+
+  createNews(postData) {
+    const url = URL.createNews;
+    return this.http.post(url, postData);
+  }
+
+  uploadImg(type, file) {
+    const url = URL.uploadFile + type;
+    const formData = new FormData();
+    formData.append('file', file);
+    return this.http.post(url, formData);
+  }
 }

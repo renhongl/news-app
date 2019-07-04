@@ -23,7 +23,7 @@ export class SubMenuComponent implements OnInit {
   constructor(@Inject('subMenuService') private subMenuService) { }
 
   ngOnInit() {
-    this.subMenuService.currentMenuSubject.subscribe(menu => {
+    this.subMenuService.currentMenu$.subscribe(menu => {
       this.currentMenu = menu;
     });
   }
@@ -33,9 +33,8 @@ export class SubMenuComponent implements OnInit {
   }
 
   refreshPage() {
-    const currentMenu = this.subMenuService.currentMenu;
-    const currentNewsRef = this.newsListRefList.filter((item, index) => index === currentMenu)[0];
-    currentNewsRef.getChannel(currentMenu);
+    const currentNewsRef = this.newsListRefList.filter((item, index) => index === this.currentMenu)[0];
+    currentNewsRef.getNewsList();
   }
 
 }

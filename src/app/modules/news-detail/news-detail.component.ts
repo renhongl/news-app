@@ -14,7 +14,7 @@ export class NewsDetailComponent implements OnInit {
   currentUser: User;
 
   constructor(
-    private route: ActivatedRoute, 
+    private route: ActivatedRoute,
     @Inject('newsService') private newsService,
     @Inject('userService') private userService
     ) { }
@@ -32,7 +32,8 @@ export class NewsDetailComponent implements OnInit {
         title: news.title,
         author: news.author,
         postDate: translateDate(news.dateTime),
-        content: news.content
+        content: news.content,
+        previewImg: news.previewImg,
       };
       this.getUserDetail(news.author);
     });

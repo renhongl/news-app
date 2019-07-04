@@ -4,7 +4,7 @@ import { SubMenuComponent } from './sub-menu.component';
 import { IonicModule } from '@ionic/angular';
 import { NewsModule } from '../news/news.module';
 import { SubMenuService } from '../../services/sub-menu.service';
-
+import { NewsService } from '../../services/news.service';
 
 @NgModule({
   declarations: [SubMenuComponent],
@@ -17,6 +17,10 @@ import { SubMenuService } from '../../services/sub-menu.service';
     {
       provide: 'subMenuService',
       useClass: SubMenuService
+    },
+    {
+      provide: 'newsService',
+      useClass: NewsService
     }
   ],
   exports: [SubMenuComponent],

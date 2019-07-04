@@ -6,7 +6,7 @@ import { BehaviorSubject } from 'rxjs';
 export class SubMenuService {
 
   currentMenu = new BehaviorSubject(0);
-  currentMenuSubject = this.currentMenu.asObservable();
+  currentMenu$ = this.currentMenu.asObservable();
 
   constructor() { }
 

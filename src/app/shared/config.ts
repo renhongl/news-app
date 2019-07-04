@@ -20,6 +20,12 @@ export const pagesMapping: Array<Page> = [
         path: 'video',
         icon: 'play',
         label: '小视频'
+    },
+    {
+        id: 3,
+        path: 'profile',
+        icon: 'person',
+        label: '我的'
     }
 ];
 

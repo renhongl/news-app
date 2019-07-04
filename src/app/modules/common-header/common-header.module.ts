@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { CommonHeaderComponent } from './common-header.component';
 import { IonicModule } from '@ionic/angular';
 import { SubMenuService } from '../../services/sub-menu.service';
+import { UserService } from '../../services/user.service';
 
 
 @NgModule({
@@ -15,6 +16,10 @@ import { SubMenuService } from '../../services/sub-menu.service';
     {
       provide: 'subMenuService',
       useClass: SubMenuService
+    },
+    {
+      provide: 'userService',
+      useClass: UserService
     }
   ],
   exports: [CommonHeaderComponent]
