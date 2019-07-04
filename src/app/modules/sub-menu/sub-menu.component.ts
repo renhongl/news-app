@@ -1,5 +1,4 @@
-import { Component, OnInit, ViewChild, Input, ViewChildren } from '@angular/core';
-import { SubMenuService } from './sub-menu.service';
+import { Component, OnInit, ViewChild, Input, ViewChildren, Inject } from '@angular/core';
 import { subMenuMapping } from '../../shared/config';
 
 @Component({
@@ -21,16 +20,15 @@ export class SubMenuComponent implements OnInit {
 
   currentMenu = 0;
 
-  constructor(private subMenuService: SubMenuService) { }
+  constructor(@Inject('subMenuService') private subMenuService) { }
 
   ngOnInit() {
-    this.subMenuService.menuSubject$.subscribe(menu => {
-      debugger;
+    this.subMenuService.currentMenuSubject.subscribe(menu => {
+      this.currentMenu = menu;
     });
   }
 
   slideDidChange(): void {
-    debugger;
     this.menuSlideRef.getActiveIndex().then((index: number) => this.subMenuService.updateMenu(index));
   }
 

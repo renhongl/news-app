@@ -1,5 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { SubMenuService } from '../sub-menu/sub-menu.service';
+import { Component, OnInit, Input, Inject } from '@angular/core';
 import { SubMenu } from '../../shared/type';
 
 @Component({
@@ -11,10 +10,15 @@ export class CommonHeaderComponent implements OnInit {
 
   @Input() items: Array<SubMenu>;
 
-  constructor(private subMenuService: SubMenuService) { }
+  currentSubMenu: number;
+
+  constructor(@Inject('subMenuService') private subMenuService) { }
 
   ngOnInit() {
-    
+    this.subMenuService.currentMenuSubject.subscribe(menu => {
+      this.currentSubMenu = menu;
+    });
   }
+
 
 }

@@ -19,7 +19,6 @@ export interface News {
     author: string;
     read?: string;
     postDate?: string;
-    channelId?: string;
     previewImg?: string;
     content?: string;
 }
@@ -27,7 +26,7 @@ export interface News {
 export interface User {
     readonly id: number;
     userName: string;
-    src: string;
+    avator: string;
 }
 
 

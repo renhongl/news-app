@@ -3,8 +3,8 @@
         <div class="title">{{currentNews.title}}</div>
         <div class="userInfo">
             <div class="author">{{currentNews.author}}</div>
-            <img src="./assets/madison.jpg" alt="logo">
-            <div class="postDate">{{currentNews.postDate}} 前更新</div>
+            <img [src]="'http://localhost:3000/' + currentUser.avator" alt="logo">
+            <div class="postDate">{{currentNews.postDate}}前</div>
         </div>
         <ngx-md>{{currentNews.content}}</ngx-md>
     </div>

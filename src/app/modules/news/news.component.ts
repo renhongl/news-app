@@ -16,16 +16,25 @@ export class NewsComponent implements OnInit, OnChanges {
 
   newsList: Array<News> = [];
 
-  constructor(public navCtrl: NavController, @Inject('newsService') private newsService, public toastController: ToastController, @Inject('subMenuService') private subMenuService) { }
+  constructor(
+    public navCtrl: NavController,
+    @Inject('newsService') private newsService,
+    public toastController: ToastController,
+  ) { }
 
   ngOnInit() {
-    if (this.index === this.currentMenu) {
-      this.getNewsList();
-    }
+    this.renderList();
   }
 
   ngOnChanges() {
-    debugger;
+    this.renderList();
+  }
+
+
+  renderList() {
+    if (this.index === this.currentMenu) {
+      this.getNewsList();
+    }
   }
 
   async presentToast(len) {
@@ -48,7 +57,9 @@ export class NewsComponent implements OnInit, OnChanges {
           title: item.title,
           author: item.author,
           postDate: translateDate(item.dateTime),
-          content: item.content
+          content: item.content,
+          previewImg: item.previewImg || '',
+          comment: item.comment || 0,
         };
       });
     });

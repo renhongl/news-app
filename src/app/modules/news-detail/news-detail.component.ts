@@ -1,6 +1,6 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { News } from 'src/app/shared/type';
+import { News, User } from 'src/app/shared/type';
 import { translateDate, parseHtml } from '../../shared/utils';
 
 @Component({
@@ -11,8 +11,13 @@ import { translateDate, parseHtml } from '../../shared/utils';
 export class NewsDetailComponent implements OnInit {
 
   currentNews: News;
+  currentUser: User;
 
-  constructor(private route: ActivatedRoute, @Inject('newsService') private newsService) { }
+  constructor(
+    private route: ActivatedRoute, 
+    @Inject('newsService') private newsService,
+    @Inject('userService') private userService
+    ) { }
 
   ngOnInit() {
     this.getNewsDetail();
@@ -29,6 +34,13 @@ export class NewsDetailComponent implements OnInit {
         postDate: translateDate(news.dateTime),
         content: news.content
       };
+      this.getUserDetail(news.author);
+    });
+  }
+
+  getUserDetail(username) {
+    this.userService.getUserDetail(username).subscribe(result => {
+      this.currentUser = result.data;
     });
   }
 }

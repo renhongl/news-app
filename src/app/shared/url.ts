@@ -1,6 +1,8 @@
 
-
+const SERVER = 'http://localhost:3000';
 
 export const URL: any = {
-    news: 'api/news',
-}
+    getNewsDetail: SERVER + '/news/',
+    getLatestNews: SERVER + '/news/latest/',
+    getUserDetial: SERVER + '/user/'
+};
