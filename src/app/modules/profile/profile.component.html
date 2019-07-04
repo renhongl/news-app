@@ -4,7 +4,7 @@
   <div *ngIf="login.token" class="profile">
     <ion-item>
       <ion-thumbnail slot="start">
-        <img [src]="'http://localhost:3000/' + login.user.avator">
+        <img [src]="'http://192.168.1.78:3000/' + login.user.avator">
       </ion-thumbnail>
       <ion-label>
         <h2>{{login.user.username}}</h2>
@@ -14,7 +14,7 @@
     <div class="gap"></div>
     <ion-item>
       <ion-label>新闻</ion-label>
-      <ion-note slot="end">{{login.user.news}}</ion-note>
+      <ion-note slot="end" color="primary">{{login.user.news}}</ion-note>
     </ion-item>
     <div class="gap"></div>
     <ion-item>
@@ -24,12 +24,12 @@
     <div class="gap"></div>
     <ion-item>
       <ion-label>关注</ion-label>
-      <ion-note slot="end" color="secondary">{{login.user.followee}}</ion-note>
+      <ion-note slot="end" color="primary">{{login.user.followee}}</ion-note>
     </ion-item>
     <div class="gap"></div>
     <ion-item>
       <ion-label>粉丝</ion-label>
-      <ion-note slot="end" color="tertiary">{{login.user.follower}}</ion-note>
+      <ion-note slot="end" color="primary">{{login.user.follower}}</ion-note>
     </ion-item>
     <div class="gap"></div>
   </div>

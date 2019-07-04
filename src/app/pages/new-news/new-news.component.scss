@@ -9,5 +9,27 @@
         height: 90px;
         background: #ececec;
         color: #d6d6d6;
+        position: relative;
+
+        ion-icon{
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        input{
+            opacity: 0;
+            width: 100%;
+            height: 100%;
+            position: absolute;
+        }
     }
+}
+
+img.preview{
+    width: 90px;
+    height: 90px;
+    margin-right: 5px;
 }

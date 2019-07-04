@@ -66,3 +66,5 @@ export const subMenuMapping: any = {
         // }
     ]
 };
+
+export const newsType = ['internal', 'international', 'military', 'finance', 'internet'];

@@ -34,6 +34,7 @@ export class NewsDetailComponent implements OnInit {
         postDate: translateDate(news.dateTime),
         content: news.content,
         previewImg: news.previewImg,
+        images: news.images || []
       };
       this.getUserDetail(news.author);
     });

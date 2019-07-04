@@ -3,6 +3,7 @@ import { News } from '../../shared/type';
 import { NavController } from '@ionic/angular';
 import { translateDate, parseHtml } from '../../shared/utils';
 import { ToastController } from '@ionic/angular';
+import { newsType } from '../../shared/config';
 
 @Component({
   selector: 'app-module-news',
@@ -15,6 +16,7 @@ export class NewsComponent implements OnInit, OnChanges {
   @Input() currentMenu;
 
   newsList: Array<News> = [];
+
 
   constructor(
     public navCtrl: NavController,
@@ -50,7 +52,7 @@ export class NewsComponent implements OnInit, OnChanges {
   }
 
   getNewsList() {
-    this.newsService.getLatestNews().subscribe(result => {
+    this.newsService.getLatestNews(newsType[this.currentMenu]).subscribe(result => {
       this.newsList = result.data.map(item => {
         return {
           id: item._id,

@@ -8,9 +8,9 @@ export class NewsService {
 
   constructor(private http: HttpClient) { }
 
-  getLatestNews() {
+  getLatestNews(type) {
     console.log(URL);
-    const url = URL.getLatestNews + '20';
+    const url = URL.getLatestNews + type;
     return this.http.get(url, { headers: createAuthHeader() });
   }
 

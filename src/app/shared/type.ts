@@ -1,32 +1,33 @@
 
 
 export interface Page {
-    readonly id: number;
-    path: string;
-    icon: string;
-    label: string;
-    src?: string;
+    readonly id: Number;
+    path: String;
+    icon: String;
+    label: String;
+    src?: String;
 }
 
 export interface SubMenu {
-    readonly id: number;
-    label: string;
+    readonly id: Number;
+    label: String;
 }
 
 export interface News {
-    readonly id: string;
-    title: string;
-    author: string;
-    read?: string;
-    postDate?: string;
-    previewImg?: string;
-    content?: string;
+    readonly id: String;
+    title: String;
+    author: String;
+    read?: String;
+    postDate?: String;
+    previewImg?: String;
+    content?: String;
+    images?: Array<String>;
 }
 
 export interface User {
-    readonly id: number;
-    userName: string;
-    avator: string;
+    readonly id: Number;
+    userName: String;
+    avator: String;
 }
 
 

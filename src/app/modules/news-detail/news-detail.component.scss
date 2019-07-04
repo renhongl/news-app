@@ -1,6 +1,16 @@
 .container{
     padding: 20px;
 
+    .images{
+        display: flex;
+
+        img{
+            flex: 1;
+            width: 0 !important;
+            padding: 2px;
+        }
+    }
+
     .content-img{
         width: 80%;
         height: 50%;
