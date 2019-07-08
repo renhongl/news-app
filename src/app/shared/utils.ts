@@ -1,8 +1,7 @@
 import { HttpHeaders } from '@angular/common/http';
+import { SERVER } from './url';
 
 export const translateDate = (date) => {
-    // dateString.replace(/-/g, '/');
-    // const date = new Date(dateString).getTime();
     const now = Date.now();
     let time = Math.floor((now - date) / 1000 / 60);
     let c = '分钟';
@@ -22,9 +21,37 @@ export const parseHtml = (html) => {
 
 
 export const createAuthHeader = () => {
-    // const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7Il9pZCI6IjVkMTk4NDVmZmMxY2MzMjY5Y2I5N2Y5YSIsInVzZXJuYW1lIjoibHJoIiwicGFzc3dvcmQiOiIkMmIkMDUkbzh0ZnlLbEdWb1NhUnZIWnB0NWt3T3I2NXFuREpURG9pMmdZa1hJV0RxeS5CNDA2ZXgzeUciLCJfX3YiOjB9LCJleHAiOjE1NjIxNDk3NjcsImlhdCI6MTU2MjE0NjE2N30.DzFTOPrHEJB0gEVJONK5QOFJWETFAYcXSLBpr3C-9-s';
-    // let headers = new HttpHeaders();
-    // headers = headers.append('token', token);
-    // return headers;
-    return null;
+    const token = 'temp-token';
+    let headers = new HttpHeaders();
+    headers = headers.append('token', token);
+    return headers;
 };
+
+export const isArray = (target) => {
+    return Object.prototype.toString.call(target) === '[object Array]';
+};
+
+export const isString = (target) => {
+    return Object.prototype.toString.call(target) === '[object String]';
+};
+
+export const addPrefix = (target) => {
+    if (isArray(target)) {
+        return target.map(item => {
+            if (!item.includes('http')) {
+                return SERVER + '/' + item;
+            }
+            return item;
+        });
+    }
+    if (isString(target) && !target.includes('http')) {
+        return SERVER + '/' + target;
+    }
+    return target;
+};
+
+
+
+
+
+

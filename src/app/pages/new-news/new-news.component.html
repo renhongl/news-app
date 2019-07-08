@@ -6,47 +6,51 @@
 </ion-header>
 
 <ion-content>
-  <form onsubmit="processForm(event)">
-    <ion-list lines="full" class="ion-no-margin ion-no-padding">
-      <ion-item>
-        <ion-label position="stacked">标题<ion-text color="danger">*</ion-text>
-        </ion-label>
-        <ion-input required type="text" (input)="handleTitle($event)"></ion-input>
-      </ion-item>
-
-      <ion-item>
-        <ion-label position="stacked">正文<ion-text color="danger">*</ion-text>
-        </ion-label>
-        <ion-textarea rows="10" (input)="handleContent($event)"></ion-textarea>
-      </ion-item>
-
-      <ion-item>
-        <ion-label>类型</ion-label>
-            <ion-select interface="action-sheet" [value]="type" (ionChange)="handleType($event)">
-              <ion-select-option value="internal">国内</ion-select-option>
-              <ion-select-option value="international">国际</ion-select-option>
-              <ion-select-option value="military">军事</ion-select-option>
-              <ion-select-option value="finance">财经</ion-select-option>
-              <ion-select-option value="internet">互联网</ion-select-option>
-            </ion-select>
-      </ion-item>
-
-      <ion-item>
-        <div class="attach" #preViewCon>
-          <div class="upload">
+  <div class="container">
+    <div class="gap"></div>
+    <form onsubmit="processForm(event)">
+      <ion-list lines="full" class="ion-no-margin ion-no-padding">
+        <ion-item>
+          <ion-label position="stacked">标题<ion-text color="danger">*</ion-text>
+          </ion-label>
+          <ion-input required type="text" (input)="handleTitle($event)"></ion-input>
+        </ion-item>
+        <div class="gap"></div>
+        <ion-item>
+          <ion-label position="stacked">正文<ion-text color="danger">*</ion-text>
+          </ion-label>
+          <ion-textarea rows="10" (input)="handleContent($event)"></ion-textarea>
+        </ion-item>
+        <div class="gap"></div>
+        <ion-item>
+          <ion-label>类型</ion-label>
+          <ion-select interface="action-sheet" [value]="type" (ionChange)="handleType($event)">
+            <ion-select-option value="internal">国内</ion-select-option>
+            <ion-select-option value="international">国际</ion-select-option>
+            <ion-select-option value="military">军事</ion-select-option>
+            <ion-select-option value="finance">财经</ion-select-option>
+            <ion-select-option value="internet">互联网</ion-select-option>
+          </ion-select>
+        </ion-item>
+        <div class="gap"></div>
+        <ion-item>
+          <div class="attach" #preViewCon>
+            <div class="upload">
               <ion-icon name="add"></ion-icon>
-              <input type="file" (change)="uploadImg($event)">
+              <input type="file" (change)="uploadImg($event)" (error)="handleError($evet)">
+            </div>
           </div>
-        </div>
-      </ion-item>
+        </ion-item>
 
-      
-    </ion-list>
 
-    
+      </ion-list>
 
-    <div class="ion-padding">
-      <ion-button (click)="submitNews()" expand="block" type="button" class="ion-no-margin">提交</ion-button>
-    </div>
-  </form>
+      <div class="gap"></div>
+
+      <div class="full-width">
+        <ion-button color="success" (click)="submitNews()" expand="full" type="button" class="ion-no-margin">提交
+        </ion-button>
+      </div>
+    </form>
+  </div>
 </ion-content>

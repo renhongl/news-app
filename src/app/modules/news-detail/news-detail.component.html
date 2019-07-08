@@ -4,12 +4,12 @@
         <div class="userInfo">
             <div class="author">{{currentNews.author}}</div>
             <div *ngIf="currentUser">
-                <img  [src]="'http://192.168.1.78:3000/' + currentUser.avator" alt="logo">
+                <img  [src]="currentUser.avator" alt="logo">
             </div>
             <div class="postDate">{{currentNews.postDate}}前</div>
         </div>
         <div *ngIf="currentNews.images" class="images">
-            <img *ngFor="let item of currentNews.images" [src]="'http://192.168.1.78:3000/' + item" class="content-img" alt="">
+            <img *ngFor="let item of currentNews.images" [src]="item" class="content-img" alt="">
         </div>
         <ngx-md>{{currentNews.content}}</ngx-md>
     </div>

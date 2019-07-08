@@ -1,14 +1,61 @@
 .container{
     width: 100%;
     height: 100%;
-    background: white;
+    background: #efefef;
+
+    .forward-btn{
+        color: #c7c7c7;
+    }
 
     .gap{
         height: 10px;
         width: 100%;
     }
 
-    .item-inner{
-        border-bottom: none;
+    .profile .item-inner{
+        border-width: 0;
+        border-bottom: 0;
+    }
+
+    .avator-con{
+        position: relative;
+    }
+
+    .avator-upload{
+        position: absolute;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: inline-block;
+        opacity: 0;
+    }
+
+    .detail {
+        height: 50px;
+        width: 100%;
+        display: flex;
+        background: #fff;
+        padding: 5px;
+
+        .item {
+            flex: 1;
+            text-align: center;
+            position: relative;
+            font-size: 0.8rem;
+            .value {
+                position: absolute;
+                top: 0;
+                left: 50%;
+                transform: translateX(-50%);
+                font-weight: bold;
+            }
+
+            .key {
+                position: absolute;
+                bottom: 0;
+                left: 50%;
+                transform: translateX(-50%);
+            }
+        }
     }
 }

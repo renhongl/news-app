@@ -15,14 +15,20 @@
 
         .title{
             position: absolute;
-            width: 217px;
+            width: 60%;
             text-align: left;
-            height: 50%;
-            padding-top: 20px;
-            padding-left: 20px;
+            height: 75%;
+            padding-top: 5%;
+            padding-left: 5%;
             font-weight: bold;
             line-height: 24px;
-            font-size: 1.2rem;
+            font-size: 1rem;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            -webkit-line-clamp: 4;
+            display: -webkit-box;
+            word-break: break-all;
+            -webkit-box-orient: vertical;
         }
 
         .extend{
@@ -31,33 +37,33 @@
 
         .author{
             position: absolute;
-            bottom: 22px;
-            left: 20px;
+            bottom: 10%;
+            left: 5%;
             font-size: 0.9rem;
         }
 
         .comment{
             position: absolute;
-            left: 103px;
-            bottom: 22px;
+            left: 30%;
+            bottom: 10%;
             font-size: 0.8rem;
             color: grey;
         }
 
         .postDate{
             position: absolute;
-            right: 200px;
-            bottom: 22px;
+            left: 45%;
+            bottom: 10%;
             font-size: 0.8rem;
             color: grey;
         }
 
         .previewImg{
-            width: 130px;
-            height: 109px;
+            width: 30%;
+            height: 80%;
             position: absolute;
-            right: 20px;
-            top: 20px;
+            right: 5%;
+            top: 10%;
             border-radius: 5px;
         }
     }

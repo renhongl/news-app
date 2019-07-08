@@ -3,8 +3,10 @@
   <div class="gap"></div>
   <div *ngIf="login.token" class="profile">
     <ion-item>
-      <ion-thumbnail slot="start">
-        <img [src]="'http://192.168.1.78:3000/' + login.user.avator">
+      <ion-icon slot="end" name="arrow-forward" class="forward-btn"></ion-icon>
+      <ion-thumbnail slot="start" class="avator-con">
+        <img [src]="login.user.avator" alt="avator">
+        <input type="file" class="avator-upload" (change)="handleAvator($event)">
       </ion-thumbnail>
       <ion-label>
         <h2>{{login.user.username}}</h2>
@@ -12,25 +14,31 @@
       </ion-label>
     </ion-item>
     <div class="gap"></div>
-    <ion-item>
-      <ion-label>新闻</ion-label>
-      <ion-note slot="end" color="primary">{{login.user.news}}</ion-note>
-    </ion-item>
+
+    <div class="detail">
+      <div class="item" (click)="goToMyNews()">
+        <span class="value">{{login.user.news || 0}}</span>
+        <span class="key">新闻</span>
+      </div>
+      <div class="item">
+        <span class="value">{{login.user.love || 0}}</span>
+        <span class="key">喜欢</span>
+      </div>
+      <div class="item">
+        <span class="value">{{login.user.followee || 0}}</span>
+        <span class="key">关注</span>
+      </div>
+      <div class="item">
+        <span class="value">{{login.user.follower || 0}}</span>
+        <span class="key">粉丝</span>
+      </div>
+    </div>
+
+
     <div class="gap"></div>
-    <ion-item>
-      <ion-label>喜欢</ion-label>
-      <ion-note slot="end" color="primary">{{login.user.love}}</ion-note>
-    </ion-item>
-    <div class="gap"></div>
-    <ion-item>
-      <ion-label>关注</ion-label>
-      <ion-note slot="end" color="primary">{{login.user.followee}}</ion-note>
-    </ion-item>
-    <div class="gap"></div>
-    <ion-item>
-      <ion-label>粉丝</ion-label>
-      <ion-note slot="end" color="primary">{{login.user.follower}}</ion-note>
-    </ion-item>
-    <div class="gap"></div>
+    <div class="full-width logout">
+      <ion-button expand="full" type="button" class="ion-no-margin" color="danger" (click)="handleLogout()">注销
+      </ion-button>
+    </div>
   </div>
 </div>

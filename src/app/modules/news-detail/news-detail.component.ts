@@ -1,7 +1,7 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { News, User } from 'src/app/shared/type';
-import { translateDate, parseHtml } from '../../shared/utils';
+import { translateDate, parseHtml, addPrefix } from '../../shared/utils';
 
 @Component({
   selector: 'app-module-news-detail',
@@ -34,7 +34,7 @@ export class NewsDetailComponent implements OnInit {
         postDate: translateDate(news.dateTime),
         content: news.content,
         previewImg: news.previewImg,
-        images: news.images || []
+        images: addPrefix(news.images) || []
       };
       this.getUserDetail(news.author);
     });
@@ -42,7 +42,10 @@ export class NewsDetailComponent implements OnInit {
 
   getUserDetail(username) {
     this.userService.getUserDetail(username).subscribe(result => {
-      this.currentUser = result.data;
+      this.currentUser = {
+        ...result.data,
+        avator: addPrefix(result.data.avator),
+      };
     });
   }
 }

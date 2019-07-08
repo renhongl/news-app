@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { NavController } from '@ionic/angular';
 import { HomePage } from '../home/home.page';
+import { ActivatedRoute  } from '@angular/router';
+import {Location} from '@angular/common';
 
 @Component({
   selector: 'app-page-news-detail',
@@ -9,13 +11,17 @@ import { HomePage } from '../home/home.page';
 })
 export class NewsDetailPage implements OnInit {
 
-  constructor(private navCtrl: NavController) { }
+  constructor(
+    private navCtrl: NavController,
+    private route: ActivatedRoute,
+    private location: Location
+    ) { }
 
   ngOnInit() {
   }
 
   goBack(): void {
-    this.navCtrl.navigateBack('/');
+    this.location.back();
   }
 
 }

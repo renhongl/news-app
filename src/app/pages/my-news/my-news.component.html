@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-icon name="arrow-back" (click)="goBack()"></ion-icon>
+    <ion-title>我的新闻</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="container">
+    <ion-list>
+      <ion-item *ngFor="let news of newsList" (click)="showDetail(news._id)">
+        <ion-avatar slot="end">
+          <img [src]="news.previewImg" class="my-news-img">
+        </ion-avatar>
+        <ion-label>
+          <h3>{{news.title}}</h3>
+          <p> </p>
+          <p>{{news.dateTime}}前</p>
+        </ion-label>
+      </ion-item>
+    </ion-list>
+  </div>
+</ion-content>

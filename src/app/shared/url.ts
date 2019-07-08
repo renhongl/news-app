@@ -1,5 +1,5 @@
 
-const SERVER = 'http://192.168.1.78:3000';
+export const SERVER = 'http://localhost:3000';
 
 export const URL: any = {
     getNewsDetail: SERVER + '/news/',
@@ -7,5 +7,9 @@ export const URL: any = {
     createNews: SERVER + '/news/',
     getUserDetial: SERVER + '/user/',
     loginUser: SERVER + '/login/',
-    uploadFile: SERVER + '/file/'
+    uploadFile: SERVER + '/file/',
+    getCode: SERVER + '/register/mail',
+    register: SERVER + '/register',
+    updateUser: SERVER + '/user/',
+    getNewsByAuthor: SERVER + '/news/author/'
 };

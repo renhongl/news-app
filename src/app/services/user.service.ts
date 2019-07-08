@@ -28,4 +28,26 @@ export class UserService {
     const url = URL.getUserDetial + username;
     return this.http.get(url);
   }
+
+  getCode(postData) {
+    const url = URL.getCode;
+    return this.http.post(url, postData);
+  }
+
+  register(postData) {
+    const url = URL.register;
+    return this.http.post(url, postData);
+  }
+
+  uploadImg(type, file) {
+    const url = URL.uploadFile + type;
+    const formData = new FormData();
+    formData.append('file', file);
+    return this.http.post(url, formData);
+  }
+
+  updateUser(id, postData) {
+    const url = URL.updateUser + id;
+    return this.http.put(url, postData);
+  }
 }

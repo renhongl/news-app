@@ -1,35 +1,51 @@
-.attach{
+.container{
+    background: #efefef;
     width: 100%;
-    height: 100px;
-    display: flex;
-    align-items: center;
+    height: 100%;
 
-    .upload{
-        width: 90px;
-        height: 90px;
-        background: #ececec;
-        color: #d6d6d6;
-        position: relative;
-
-        ion-icon{
-            position: absolute;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-        }
-
-        input{
-            opacity: 0;
-            width: 100%;
-            height: 100%;
-            position: absolute;
+    .attach{
+        width: 100%;
+        height: 100px;
+        display: flex;
+        align-items: center;
+    
+        .upload{
+            width: 90px;
+            height: 90px;
+            background: #ececec;
+            color: #d6d6d6;
+            position: relative;
+    
+            ion-icon{
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 100%;
+            }
+    
+            input{
+                opacity: 0;
+                width: 100%;
+                height: 100%;
+                position: absolute;
+            }
         }
     }
+    
+    img.preview{
+        width: 90px;
+        height: 90px;
+        margin-right: 5px;
+    }
+    
+    .gap{
+        height: 10px;
+        width: 100%;
+        background: #f1f1f1;
+    }
+    
 }
 
-img.preview{
-    width: 90px;
-    height: 90px;
-    margin-right: 5px;
-}
+
+

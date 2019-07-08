@@ -30,4 +30,9 @@ export class NewsService {
     formData.append('file', file);
     return this.http.post(url, formData);
   }
+
+  getNewsByAuthor(author) {
+    const url = URL.getNewsByAuthor + author;
+    return this.http.get(url);
+  }
 }
