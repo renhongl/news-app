@@ -12,9 +12,14 @@
         width: 100%;
     }
 
-    .profile .item-inner{
+    .item-inner{
         border-width: 0;
         border-bottom: 0;
+        --border-width: 0;
+    }
+
+    ion-item{
+        --border-width: 0;
     }
 
     .avator-con{

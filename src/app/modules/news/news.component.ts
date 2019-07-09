@@ -25,7 +25,7 @@ export class NewsComponent implements OnInit, OnChanges {
   ) { }
 
   ngOnInit() {
-    this.renderList();
+    // this.renderList();
   }
 
   ngOnChanges() {

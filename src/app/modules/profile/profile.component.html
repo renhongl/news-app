@@ -2,11 +2,10 @@
   <app-submodule-login *ngIf="!login.token"></app-submodule-login>
   <div class="gap"></div>
   <div *ngIf="login.token" class="profile">
-    <ion-item>
+    <ion-item (click)="goToProfileUpdate()">
       <ion-icon slot="end" name="arrow-forward" class="forward-btn"></ion-icon>
       <ion-thumbnail slot="start" class="avator-con">
         <img [src]="login.user.avator" alt="avator">
-        <input type="file" class="avator-upload" (change)="handleAvator($event)">
       </ion-thumbnail>
       <ion-label>
         <h2>{{login.user.username}}</h2>
@@ -33,7 +32,6 @@
         <span class="key">粉丝</span>
       </div>
     </div>
-
 
     <div class="gap"></div>
     <div class="full-width logout">

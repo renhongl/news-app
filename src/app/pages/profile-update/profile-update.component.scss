@@ -1,0 +1,29 @@
+.container{
+    width: 100%;
+    height: 100%;
+    background: #efefef;
+
+
+    .gap{
+        height: 10px;
+        width: 100%;
+        background: #efefef;
+    }
+
+    .avator-upload{
+        position: absolute;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: inline-block;
+        opacity: 0;
+    }
+
+    .avator-con{
+        position: relative;
+    }
+
+    ion-item{
+        --border-width: 0;
+    }
+}

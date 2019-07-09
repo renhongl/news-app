@@ -1,7 +1,7 @@
 import { Component, OnInit, Inject, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { NavController } from '@ionic/angular';
-import { addPrefix } from 'src/app/shared/utils';
+import { addPrefix, updateSession } from 'src/app/shared/utils';
 
 @Component({
   selector: 'app-page-new-news',
@@ -35,9 +35,13 @@ export class NewNewsComponent implements OnInit {
   uploadImg(e) {
     const file = e.srcElement.files[0];
     this.newsService.uploadImg('news', file).subscribe(result => {
-      this.preViewImg = result.imagePath;
-      this.appendPreview(this.preViewImg);
-      this.images.push(this.preViewImg);
+      if (result.code === 200) {
+        this.preViewImg = result.imagePath;
+        this.appendPreview(this.preViewImg);
+        this.images.push(this.preViewImg);
+      } else {
+        alert(result.message);
+      }
     });
   }
 
@@ -70,6 +74,22 @@ export class NewNewsComponent implements OnInit {
     console.log(e);
   }
 
+  updateUser() {
+    const login = JSON.parse(sessionStorage.getItem('aikan'));
+    login.user.news = (login.user.news || 0) + 1;
+    const id = login.user._id;
+    const postData = {
+      news: login.user.news,
+    };
+    updateSession('news', login.user.news);
+    this.userService.updateLogin(login);
+    this.userService.updateUser(id, postData).subscribe(result => {
+      if (result.code === 200) {
+        console.log(result.message);
+      }
+    });
+  }
+
   submitNews() {
     const username = this.route.snapshot.paramMap.get('username');
     const postData = {
@@ -86,6 +106,7 @@ export class NewNewsComponent implements OnInit {
       if (result.code === 200) {
         console.log('Create news successfully');
         this.navCtrl.navigateBack('/');
+        this.updateUser();
       }
     });
   }

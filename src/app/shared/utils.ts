@@ -19,7 +19,6 @@ export const parseHtml = (html) => {
     return html.replace(/http:/g, 'https:');
 };
 
-
 export const createAuthHeader = () => {
     const token = 'temp-token';
     let headers = new HttpHeaders();
@@ -49,6 +48,16 @@ export const addPrefix = (target) => {
     }
     return target;
 };
+
+export const updateSession = (key, value) => {
+    const auth = sessionStorage.getItem('aikan');
+    if (auth) {
+        const authObj = JSON.parse(auth);
+        authObj.user[key] = value;
+        sessionStorage.setItem('aikan', JSON.stringify(authObj));
+    }
+};
+
 
 
 

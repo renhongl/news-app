@@ -6,6 +6,7 @@ const routes: Routes = [
   { path: 'news-detail/:id', loadChildren: './pages/news-detail/news-detail.module#NewsDetailPageModule' },
   { path: 'new-news/:username', loadChildren: './pages/new-news/new-news.module#NewNewsPageModule' },
   { path: 'my-news/:username', loadChildren: './pages/my-news/my-news.module#MyNewsPageModule' },
+  { path: 'profile-update', loadChildren: './pages/profile-update/profile-update.module#ProfileUpdatePageModule' },
 ];
 @NgModule({
   imports: [

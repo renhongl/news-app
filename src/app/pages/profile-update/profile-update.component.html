@@ -1,0 +1,45 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-icon name="arrow-back" (click)="goBack()"></ion-icon>
+    <ion-title>
+      修改个人信息
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="container">
+    <form onsubmit="processForm(event)">
+      <ion-list lines="full" class="ion-no-margin ion-no-padding">
+          <div class="gap"></div>
+        <ion-item>
+          <ion-label position="stacked">头像
+          </ion-label>
+          <ion-avatar slot="end" class="avator-con">
+            <img [src]="avatorStr" />
+            <input type="file" class="avator-upload" (change)="handleAvator($event)">
+          </ion-avatar>
+        </ion-item>
+        <div class="gap"></div>
+        <ion-item>
+          <ion-label position="stacked">用户名
+          </ion-label>
+          <ion-input required type="text" disabled>{{username}}</ion-input>
+        </ion-item>
+        <div class="gap"></div>
+        <ion-item>
+          <ion-label position="stacked">简介
+          </ion-label>
+          <ion-input required type="text" (input)="handleIntro($event)" [value]="introStr"></ion-input>
+        </ion-item>
+        <div class="gap"></div>
+        <ion-item>
+          <ion-label position="stacked">区域
+          </ion-label>
+          <ion-input required type="text" (input)="handlePlace($event)" [value]="placeStr"></ion-input>
+        </ion-item>
+      </ion-list>
+      
+    </form>
+  </div>
+</ion-content>

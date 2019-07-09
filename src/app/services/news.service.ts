@@ -35,4 +35,9 @@ export class NewsService {
     const url = URL.getNewsByAuthor + author;
     return this.http.get(url);
   }
+
+  deleteNews(id) {
+    const url = URL.deleteNews + id;
+    return this.http.delete(url);
+  }
 }
