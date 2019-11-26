@@ -1,5 +1,5 @@
 
-export const SERVER = 'http://192.168.21.42:3000';
+export const SERVER = 'http://localhost:3000';
 
 export const URL: any = {
     getNewsDetail: SERVER + '/news/',
